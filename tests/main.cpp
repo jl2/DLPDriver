@@ -38,10 +38,10 @@ int main() {
     unsigned char outputBuffer[256];
     unsigned char inputBuffer[256];
     ssize_t werr;
-    // ssize_t rerr;
+    ssize_t rerr;
   
-    int fd = open("/dev/ttyUSB0", O_RDWR);
-    // int fd = open("/dev/ttyUSB0", O_RDWR);
+    int fd = open("/dev/ttyUSB1", O_RDWR);
+    int fd2 = open("/dev/ttyUSB0", O_RDWR);
 
     if (fd == -1) {
         printf("Could not open /dev/ttyUSB0\n");
@@ -68,8 +68,9 @@ int main() {
                  outputBuffer,
                  6);
 
+    // fflush(stdout);
 
-    // rerr = read(fd,
+    // rerr = read(fd2,
     //             inputBuffer,
     //             1);
 
@@ -105,7 +106,8 @@ int main() {
     /*     printf("Was expecting 6 bytes, got %d!\n", rerr); */
     /* } */
     /* printHex(inputBuffer, rerr); */
-  
+
+    close(fd2);
     close(fd);
 
 
