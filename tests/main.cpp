@@ -38,13 +38,13 @@ int main() {
     unsigned char outputBuffer[256];
     unsigned char inputBuffer[256];
     ssize_t werr;
-    ssize_t rerr;
+    // ssize_t rerr;
   
-    int fd = open("/dev/ttyUSB1", O_RDWR);
-    int fd2 = open("/dev/ttyUSB0", O_RDWR);
+    int fd = open("/dev/ttyUSB0", O_RDWR);
+    // int fd = open("/dev/ttyUSB0", O_RDWR);
 
     if (fd == -1) {
-        printf("Could not open /dev/ttyUSB1\n");
+        printf("Could not open /dev/ttyUSB0\n");
         exit(1);
     }
 
@@ -69,9 +69,9 @@ int main() {
                  6);
 
 
-    rerr = read(fd,
-                inputBuffer,
-                1);
+    // rerr = read(fd,
+    //             inputBuffer,
+    //             1);
 
     outputBuffer[0] = 0x3;
     outputBuffer[1] = 0x5A;
